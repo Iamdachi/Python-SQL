@@ -36,14 +36,18 @@ mysql -u {username} -p < schema.sql
 
 Run the script to read files and write into the database:
 ```bash
-mysql -u {username} -p < queries.sql
+python main.py
 ```
 
 Query the database:
 ```bash
+mysql -u {username} -p < queries.sql
+```
+
+Index the database for optimization:
+```bash
 mysql -u {username} -p < indexing.sql
 ```
-Index the database for optimization:
 
 ## Explanation
 I took the JSON reader from the previous project. Created the schema in schema.sql,
