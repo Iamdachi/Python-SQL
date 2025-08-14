@@ -1,12 +1,12 @@
 CREATE DATABASE IF NOT EXISTS school;
 USE school;
 
-CREATE TABLE rooms (
+CREATE TABLE IF NOT EXISTS rooms(
     id INT PRIMARY KEY,
     name VARCHAR(50) NOT NULL
 );
 
-CREATE TABLE students (
+CREATE TABLE IF NOT EXISTS students(
     id INT PRIMARY KEY,
     name VARCHAR(100) NOT NULL,
     birthday DATE NOT NULL,
