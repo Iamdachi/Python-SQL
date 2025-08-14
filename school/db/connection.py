@@ -1,3 +1,5 @@
+"""Context manager for managing MySQL database connections."""
+
 import mysql.connector
 from mysql.connector import MySQLConnection
 
@@ -10,6 +12,7 @@ class MySQLConnectionManager:
         self._conn = mysql.connector.connect(**self.db_config)
         return self._conn
 
-    def __exit__(self, exc_type, exc_val, exc_tb):
+    def __exit__(self, exc_type, exc_val, exc_tb) -> bool:
         if self._conn:
             self._conn.close()
+        return False

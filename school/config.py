@@ -1,3 +1,5 @@
+"""Database configuration loaded from environment variables."""
+
 from dotenv import load_dotenv
 import os
 

@@ -8,4 +8,4 @@ CREATE INDEX idx_students_birthday ON students(birthday);
 CREATE INDEX idx_students_sex ON students(sex);
 
 --Composite index on (room_id, sex) speeds up grouping by room and filtering distinct sexes:
-CREATE INDEX idx_students_roomid_sex ON students(room_id, sex);
+CREATE INDEX idx_students_room_id_sex ON students(room_id, sex);

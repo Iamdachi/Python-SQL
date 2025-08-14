@@ -1,3 +1,5 @@
+"""TypedDict definitions for database entities."""
+
 from typing import TypedDict
 
 class Room(TypedDict):
@@ -5,8 +7,9 @@ class Room(TypedDict):
     name: str
 
 class Student(TypedDict):
-    birthday: str
     id: int
     name: str
-    room: int
-    sex: str
+    birthday: str  # ISO format date string: YYYY-MM-DD
+    sex: str  # 'M' or 'F'
+    room: int  # Foreign key to Room.id
+
