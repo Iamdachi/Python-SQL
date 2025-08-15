@@ -29,28 +29,14 @@ sudo service mysql start
 ```
 
 ## Usage
-Create Database schema.
-```bash
-mysql -u {username} -p < schema.sql
-```
+You just need to set yp mysql service and then config it to be accessible by the script.
 
-Run the script to read files and write into the database:
+Everything else like, initializing the schema, inserting the data, indexing and querying is done by the script.
 ```bash
 python main.py
 ```
 
-Query the database:
-```bash
-mysql -u {username} -p < queries.sql
-```
-
-Index the database for optimization:
-```bash
-mysql -u {username} -p < indexing.sql
-```
-
 ## Explanation
-I took the JSON reader from the previous project. Created the schema in schema.sql,
-tasked queries in queries.sql, and indexing queries in indexing.sql. Right now you
-can directly run then through mysql.
-TODO: run those queries fom python script.
+I took the JSON reader from the previous project. Created MySQLConnectionManager class that handles the db connection.
+Created the db schema in schema.sql, tasked queries in queries.sql, and indexing queries in indexing.sql.
+Then I wrote the MySQL service that basically handels all the db operations through python scipt.
