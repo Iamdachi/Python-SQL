@@ -6,16 +6,18 @@ from school.db.connection import MySQLConnectionManager
 from school.db.service import MySQLService
 
 DATA_DIR = Path(__file__).parent / "data"
+SCHEMA_DIR = Path(__file__).parent / "db" / "schema.sql"
+INDEX_DIR = Path(__file__).parent / "db" / "indexing.sql"
 
 
 def load_data():
     """Load schema, rooms, and students from JSON files into the database."""
     with MySQLConnectionManager(**DB_CONFIG) as conn:
         service = MySQLService(conn)
-        service.run_sql_file(Path(__file__).parent / "db" / "schema.sql")
+        service.run_sql_file(SCHEMA_DIR)
 
         if service.db_not_indexed():
-            service.run_sql_file(Path(__file__).parent / "db" / "indexing.sql")
+            service.run_sql_file(INDEX_DIR)
 
         reader = JSONReader()
 
